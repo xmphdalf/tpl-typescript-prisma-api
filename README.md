@@ -31,10 +31,6 @@ docker-compose up -d
 - [Development Guide](docs/development.md) - Development workflow and commands
 - [API Documentation](docs/api.md) - API endpoints and database management
 
-## License
-
-ISC
-
 ## Prerequisites
 
 - Node.js (v16 or higher)
