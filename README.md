@@ -21,15 +21,15 @@ git clone <repository-url>
 # Install dependencies
 npm install
 
-# Start the application
+# Start the application (Docker recommended)
 docker-compose up -d
 ```
 
 ## Documentation
 
 - [Setup Guide](docs/setup.md) - Installation and configuration
-- [Development Guide](docs/development.md) - Development workflow and commands
-- [API Documentation](docs/api.md) - API endpoints and database management
+- [Development Guide](docs/development.md) - Workflow, commands, and project structure
+- [API Documentation](docs/api.md) - Endpoints and database management
 
 ## Prerequisites
 
@@ -37,95 +37,15 @@ docker-compose up -d
 - Docker and Docker Compose
 - PostgreSQL (via Docker)
 
-## Project Structure
+## Setup & Development
 
-```
-.
-├── prisma/               # Prisma schema and migrations
-├── src/                  # Source code
-│   ├── routes/          # API routes
-│   └── server.ts        # Application entry point
-├── .env                 # Environment variables
-├── .env.example         # Example environment variables
-├── docker-compose.yml   # Docker Compose configuration
-├── Dockerfile          # Docker configuration
-└── package.json         # Project dependencies and scripts
-```
+See [Setup Guide](docs/setup.md) for full instructions on installing dependencies, configuring environment variables, and running the app (with or without Docker).
 
-## Setup
-
-1. Install dependencies:
-```bash
-npm install
-```
-
-2. Copy `.env.example` to `.env` and update the database URL:
-```bash
-cp .env.example .env
-```
-
-3. Start the application using Docker Compose:
-```bash
-docker-compose up -d
-```
-
-4. Run database migrations:
-```bash
-docker-compose exec api npm run prisma:migrate
-```
-
-5. Seed the database with sample data:
-```bash
-docker-compose exec api npm run prisma:seed
-```
-
-## Development
-
-The application will automatically start in development mode when using Docker Compose. To view logs:
-```bash
-docker-compose logs -f api
-```
-
-To stop the application:
-```bash
-docker-compose down
-```
-
-## Code Quality
-
-Format code:
-```bash
-npm run format
-```
-
-Check code formatting:
-```bash
-npm run format:check
-```
-
-Lint code:
-```bash
-npm run lint
-```
-
-Fix linting issues:
-```bash
-npm run lint:fix
-```
-
-## Production
-
-Build the project:
-```bash
-npm run build
-```
-
-Start the production server:
-```bash
-npm start
-```
+See [Development Guide](docs/development.md) for project structure, development commands, and code quality tools.
 
 ## API Endpoints
+
+See [API Documentation](docs/api.md) for detailed endpoint usage and examples.
 
 - `GET /api/users` - Get all users
 - `GET /api/users/:id` - Get user by ID
@@ -135,17 +55,8 @@ npm start
 
 ## Database Management
 
-The project uses PostgreSQL running in Docker. To manage the database:
+See [API Documentation](docs/api.md#database-management) for connecting to the database and common SQL commands.
 
-1. Connect to the database:
-```bash
-docker-compose exec postgres psql -U postgres -d tpl-typescript-prisma-api
-```
+---
 
-2. Common PostgreSQL commands:
-```sql
-\dt          -- List all tables
-\du          -- List all users
-\l           -- List all databases
-\d table_name -- Describe a table
-```
+For more details, refer to the documentation in the [docs/](docs/) folder.
